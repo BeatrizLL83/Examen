@@ -3,31 +3,33 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-  display: flex;
-  justify-content: center;
-  background-color: Dark hsl(217, 12%, 63%);
-  min-height: 100vh;
-  margin: 2px;
-  padding: 2px;
+.body {
+    font-family: 'Overpass', sans-serif;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    min-height: 100vh; 
+    background-color: #141414;
+    margin: 2px;
+    padding: 2px;
 }
-icon-star {
+
+.icon-star {
     border-radius: 50%;
     background-color: Light Grey: hsl(217, 12%, 63%);
     font-size: 15px;
+      
 
+.card {
+    background-color: Light Grey: hsl(217, 12%, 63%);
+    text-align: center;
+    margin: 20px auto;
+}
 
-    Primary
-Orange: hsl(25, 97%, 53%)
-Neutral
-White: hsl(0, 0%, 100%)
-Light Grey: hsl(217, 12%, 63%)
-Dark Blue: hsl(213, 19%, 18%)
-Very 
-Dark Blue: hsl(216, 12%, 8%)
 
 .boton-num:hover {
-  background-color: #45a049; /* Cambio de color al pasar el ratón */
+  background-color: Orange: hsl(25, 97%, 53%) 
   color: White: hsl(25, 97%, 53%);
   border-radius: 4px
 
