@@ -3,29 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/png" href="images/favicon-32x32.png">
-    <title>Examen Bea</title>
+    <meta name="description"content="Calificación del servicio prestado por parte del usuario mediante estrellas"/>
+    <title>Valoración del servicio</title>
+    <link rel="icon" type="images/png" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet"/>
+
+    <script src="index.js" defer></script>
   </head>
   <body>
-    <main class="container">
-       <article class="card">
-            <div class="fondo-estrella">
-                <img src="images/icon-star.svg" alt="Estrella" class="icon-star">
-            </div>
-            <h1>¿Cómo lo hicimos?</h1>
-            <p class="text">Por favor, haznos saber cómo lo hicimos con tu solicitud de soporte</p>
-            <p class="text">Todos los comentarios son bienvenidos para ayudarnos a mejorar nuestra oferta!</p>
-            <nav class="rating-nav">
-                <a href="#" class="num-link">1</a>
-                <a href="#" class="num-link">2</a>
-                <a href="#" class="num-link">3</a>
-                <a href="#" class="num-link">4</a>
-                <a href="#" class="num-link">5</a>
-            </nav>
-            <button id="submit-btn" class="submit-btn">ENVIAR</button>
-       </article>
+    <main>
+      <section id="valoration">
+        <header>
+          <img src="./images/icon-star.svg"alt="icono estrella naranja"/>
+          <h1>¿Cómo lo hicimos?</h1>
+        </header>
+        <p>Por favor, haznos saber cómo lo hicimos con tu solicitud de soporte.</p>
+        <p>¡Todos los comentarios son bienvenidos para ayudarnos a mejorar nuestra oferta!</p>
+        <form id="form" target="_self">
+          <fieldset>
+            <input
+              type="radio"
+              id="circle1"
+              name="calification"
+              value="1"
+              required
+            />
+            <label for="circle1">1</label>
+
+            <input type="radio" id="circle2" name="calification" value="2" />
+            <label for="circle2">2</label>
+
+            <input type="radio" id="circle3" name="calification" value="3" />
+            <label for="circle3">3</label>
+
+            <input type="radio" id="circle4" name="calification" value="4" />
+            <label for="circle4">4</label>
+
+            <input type="radio" id="circle5" name="calification" value="5" />
+            <label for="circle5">5</label>
+          </fieldset>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+      <section id="thanks">
+        <header>
+          <img src="./images/illustration-thank-you.svg" alt=" datáfono gris cobrando con tarjeta y saliendo ticket de compra"/>
+        </header>
+        <span class="rating">Seleccionaste 4 de 5</span>
+        <h2>¡Gracias!</h2>
+        <p>Agradecemos que te hayas tomado el tiempo de dar una calificación.</p>
+        <p>Si alguna vez necesitas más ayuda, no dudes en volver a ponerte en contacto con nosotros</p>
+      </section>
     </main>
-    <script src="index.js"></script>
   </body>
 </html>

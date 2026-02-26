@@ -3,91 +3,98 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
+    background-color: hsl(216, 12%, 8%); /* Very Dark Blue */
     font-family: 'Overpass', sans-serif;
-    font-style: normal;
     font-size: 15px;
     display: flex;
     justify-content: center;
-    align-items: center;    
-    min-height: 100vh; 
-    background-color: hsl(216, 12%, 8%);
-    margin: 0;
+    align-items: center;
+    min-height: 100vh;
 }
 
-h1 {
-   color: hsl(0, 0%, 100%); 
-   margin-bottom: 30px;
-}
-
-.icon-star {
-    border-radius: 40%;
-    background-color: hsl(213, 19%, 18%);
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: :left;
-    margin-bottom: 30px; 
-}      
-
-.card {
-    background-color: hsl(213, 19%, 18%);
-    text-align: left;
-    margin: 20px auto;
+/* La tarjeta principal */
+main {
+    background-color: hsl(213, 19%, 18%); /* Dark Blue */
+    width: 350px;
     padding: 25px;
-    border-radius: 15px;
-    display: block;
+    border-radius: 20px;
 }
 
-.num-link {
-    background-color: #262e38;
-    color: hsl(217, 12%, 63%);
-    border-radius: 50%;
+/* Ocultamos la de gracias de inicio */
+#thanks {
+    display: none;
+    text-align: center;
+}
+
+/* Textos */
+h1, h2 { color: white; margin-bottom: 15px; }
+p { color: hsl(217, 12%, 63%); line-height: 1.5; margin-bottom: 20px; }
+
+/* Los números (Círculos) */
+fieldset {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+input[type="radio"] { display: none; } /* Escondemos el radio */
+
+label {
     width: 45px;
     height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: :center;
-    margin-bottom: 10px; 
-}
-
-.text {
+    background-color: hsl(213, 19%, 18%);
     color: hsl(217, 12%, 63%);
-    margin-bottom: 20px;
-}
-
-.fondo-estrella {
-    background-color: hsla(217, 12%, 63%, 0.1); 
-    width: 40px;
-    height: 40px;
+    border: 1px solid black; 
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
-    border: 1px solid black;
+    cursor: pointer;
 }
 
-.rating-nav {
-    display: flex;
-    justify-content: space-between;
-    margin: 25px 0;
-}
-
-
-.submit-btn {
+/* Al pasar el ratón por los números */
+label:hover {
     background-color: hsl(25, 97%, 53%);
-    color: hsl(217, 12%, 63%);
-    padding: 12px;
-    border-radius: 25px; 
+    color: white;
+}
+
+/* Color para el número cuando lo pinchas */
+.numero-marcado {
+    background-color: hsl(217, 12%, 63%); 
+    color: hsl(0, 0%, 100%); 
+    border: none;            
+}
+
+/* El botón de enviar */
+button {
+    background-color: hsl(25, 97%, 53%); 
+    color: hsl(0, 0%, 100%);             
     border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
 }
 
-
-.boton-num:hover {
-  background-color: Orange: hsl(25, 97%, 53%); 
-  color: White: hsl(25, 97%, 53%);
-  border-radius: 4px;
+/* El hover del botón (se pone blanco al pasar el ratón) */
+button:hover {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(25, 97%, 53%);
 }
 
+/* La chapita de selección en la vista 2 */
+.rating {
+    background-color: #262e38;
+    color: hsl(25, 97%, 53%);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.hidden {
+    display: none !important;
+}
