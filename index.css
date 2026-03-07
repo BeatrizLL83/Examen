@@ -1,130 +1,136 @@
-/* --- 1. RESET Y BASE: Limpiamos márgenes para que no se mueva nada solo --- */
+/* --- 1. RESET Y BASE: Limpieza total de espacios --- */
+
 * {
-    margin: 0;                            /* Quita el espacio exterior de fábrica */
-    padding: 0;                           /* Quita el relleno interior de fábrica */
-    box-sizing: border-box;               /* El padding no estira el tamaño de las cajas */
+    margin: 0;                             /* Quita márgenes por defecto */
+    padding: 0;                            /* Quita rellenos por defecto */
+    box-sizing: border-box;                /* El padding no estira las cajas */
 }
 
 body {
-    background-color: hsl(216, 12%, 8%);  /* Fondo azul muy oscuro oficial de la guía */
-    font-family: 'Overpass', sans-serif;   /* Tipografía oficial del examen */
-    display: flex;                         /* Activamos Flexbox para centrar la tarjeta */
-    justify-content: center;               /* Centra la tarjeta horizontalmente */
-    align-items: center;                   /* Centra la tarjeta verticalmente */
-    min-height: 100vh;                     /* Ocupa toda la altura de la pantalla */
+    background-color: hsl(216, 12%, 8%);   /* Fondo azul oscuro oficial */
+    font-family: 'Overpass', sans-serif;    /* Tipografía del examen */
+    display: flex;                          /* Flexbox para centrar la tarjeta */
+    justify-content: center;                /* Centra horizontalmente */
+    align-items: center;                    /* Centra verticalmente */
+    min-height: 100vh;                      /* Altura total de la pantalla */
 }
 
-/* --- 2. LA TARJETA PRINCIPAL: Con el DEGRADADO AZUL oficial --- */
+
+/* --- 2. LA TARJETA (MAIN): Con degradado y altura fija --- */
+
 main {
-    /* 1. EL COLOR DEL EXAMEN: Es la base de toda la tarjeta */
-    background-color: hsl(213, 19%, 18%); 
-
-    /* 2. EL DEGRADADO: Usamos una luz blanca transparente (hsla) */
-    /* Así, el brillo nace del propio azul que te dieron, no de un color inventado */
+    /* DEGRADADO: Luz azulada entrando por la esquina superior derecha */
     background: radial-gradient(
-        circle at 100% 0%,           /* La luz sale del centro superior */
-        hsla(213, 19%, 35%, 0.4) 0%, /* Luz azulada transparente */
-        hsl(213, 19%, 18%) 100%     /* El azul oficial puro abajo */
+        circle at 90% 0%, 
+        hsl(213, 19%, 30%) 0%,             /* Brillo azulado a la derecha */
+        hsl(213, 19%, 18%) 80%             /* Azul oscuro oficial del examen */
     );
-    
-    width: 350px;                    /* Tu ancho original */
-    padding: 25px;                   /* Tu relleno original */
-    border-radius: 20px;             /* Esquinas redondeadas */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Sombra para que flote */
+    width: 350px;                           /* Tu ancho original de 350px */
+    min-height: 415px;                      /* ALTURA FIJA: Para que las dos vistas midan igual */
+    padding: 30px;                          /* Relleno interior para que el texto respire */
+    border-radius: 20px;                    /* Esquinas redondeadas */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* Sombra para dar profundidad */
+    display: flex;                          /* Flex para repartir el espacio dentro */
+    flex-direction: column;                 /* Elementos en columna */
 }
 
-/* --- 3. LA ESTRELLA (VISTA 1): Con su círculo y borde negro --- */
+
+/* --- 3. LA ESTRELLA (VISTA 1): Círculo con borde negro --- */
+
 #valoration header img {
-    background-color: #262e38;             /* Gris azulado oscuro igual que los números */
-    border: 1.5px solid #000000;           /* Tu borde negro marca de la casa */
-    border-radius: 50%;                    /* Círculo perfecto */
-    width: 45px;                           /* Mismo tamaño que tus números (45px) */
-    height: 45px;                          /* Mismo tamaño que tus números (45px) */
-    padding: 13px;                         /* Relleno para que la estrella se vea pequeña */
-    display: block;                        /* Necesario para aplicar márgenes y tamaño */
-    margin-bottom: 30px;                   /* La separamos del título de abajo */
-    object-fit: contain;                   /* Evita que la estrella se deforme */
+    background-color: #262e38;              /* Gris oscuro igual que los números */
+    border: 1.5px solid #000000;            /* Tu borde negro marca de la casa */
+    border-radius: 50%;                     /* Círculo perfecto */
+    width: 45px;                            /* Tamaño del círculo (45px) */
+    height: 45px;                           /* Tamaño del círculo (45px) */
+    padding: 13px;                          /* Espacio para que la estrella sea pequeña */
+    display: block;                         /* Para que respete el tamaño */
+    margin-bottom: 30px;                    /* La separa del título "¿Cómo lo hicimos?" */
+    object-fit: contain;                    /* No deforma la estrella */
 }
 
-/* --- 4. VISTA DE GRACIAS (VISTA 2): Centrada y con datáfono grande --- */
+
+/* --- 4. VISTA DE GRACIAS (VISTA 2): Centrada y completa --- */
+
 #thanks {
-    display: none;                         /* De inicio no se ve (el JS lo activará) */
-    flex-direction: column;                /* Elementos uno debajo de otro */
-    align-items: center;                   /* Centra todo el contenido horizontalmente */
-    text-align: center;                    /* Centra el texto de los párrafos */
+    display: none;                          /* De inicio oculta (se activa con JS) */
+    flex-direction: column;                 /* Elementos uno debajo de otro */
+    align-items: center;                    /* Centra todo horizontalmente */
+    text-align: center;                     /* Centra el texto de los párrafos */
+    height: 100%;                           /* Usa todo el alto de la tarjeta */
+    justify-content: center;                /* Centra el contenido en el hueco grande */
 }
 
 #thanks header img {
-    width: auto;                           /* El datáfono recupera su ancho original */
-    height: auto;                          /* El datáfono recupera su alto original */
-    background-color: transparent;         /* Sin el fondo gris de la estrella */
-    border: none;                          /* Sin el borde negro de la estrella */
-    padding: 0;                            /* Sin el relleno de la estrella */
-    margin: 10px auto 30px auto;           /* Centrado y espacio arriba/abajo */
+    width: auto;                            /* El datáfono recupera su tamaño real */
+    background-color: transparent;          /* Sin fondo circular */
+    border: none;                           /* Sin borde negro */
+    padding: 0;                             /* Sin relleno extra */
+    margin-bottom: 30px;                    /* Espacio bajo el datáfono */
 }
 
-/* --- 5. TEXTOS: Títulos y párrafos --- */
-h1, h2 { 
-    color: white;                          /* Color blanco para resaltar */
-    margin-bottom: 15px;                   /* Espacio de separación inferior */
-}
 
-p { 
-    color: hsl(217, 12%, 63%);             /* Gris claro oficial para párrafos */
-    line-height: 1.5;                      /* Espacio entre líneas para leer mejor */
-    margin-bottom: 20px;                   /* Espacio entre párrafos */
-}
+/* --- 5. TEXTOS --- */
 
-/* --- 6. NÚMEROS (ESTADOS): 1 al 5 --- */
+h1, h2 { color: white; margin-bottom: 15px; }
+p { color: hsl(217, 12%, 63%); line-height: 1.5; margin-bottom: 20px; }
+
+
+/* --- 6. NÚMEROS Y ESTADOS --- */
+
 fieldset {
-    border: none;                          /* Quita el borde del fieldset */
-    display: flex;                         /* Ponemos los números en fila */
-    justify-content: space-between;        /* Los separa con el mismo hueco */
-    margin-bottom: 25px;                   /* Espacio con el botón de enviar */
+    border: none;                           /* Quita el borde del fieldset */
+    display: flex;                          /* Ponemos los números en fila */
+    justify-content: space-between;         /* Los separa con el mismo hueco */
+    margin-bottom: 25px;                    /* Espacio con el botón de enviar */
 }
 
-input[type="radio"] { display: none; }     /* Escondemos el circulito del radio button */
+input[type="radio"] { display: none; }      /* Esconde el radio original */
 
 label {
-    width: 45px; height: 45px;             /* Tu tamaño original de 45px */
-    background-color: #262e38;             /* Gris azulado oscuro inicial */
-    color: hsl(217, 12%, 63%);             /* Número en gris claro inicial */
-    border: 1px solid black;               /* Tu borde negro para los círculos */
-    border-radius: 50%;                    /* Círculo perfecto */
-    display: flex;                         /* Centra el número dentro */
+    width: 45px; height: 45px;              /* Tus 45px originales */
+    background-color: #262e38;              /* Gris oscuro inicial */
+    color: hsl(217, 12%, 63%);              /* Número en gris claro inicial */
+    border: 1px solid black;                /* Tu borde negro para círculos */
+    border-radius: 50%;                     /* Círculo perfecto */
+    display: flex;                          /* Centra el número dentro */
     justify-content: center; align-items: center;
     cursor: pointer; font-weight: 700; transition: 0.3s;
 }
 
 label:hover { background-color: hsl(25, 97%, 53%); color: white; } /* Hover naranja */
 
-/* SELECCIONADO: Al pinchar, el círculo se pone BLANCO y el número OSCURO */
+/* SELECCIONADO: Al pinchar, el número es BLANCO y el botón sigue naranja */
 fieldset input[type="radio"]:checked + label {
-    background-color: white !important;    /* Fondo blanco al elegir nota */
-    color: #262e38 !important;             /* Número en azul oscuro */
-    border: none !important;               /* Quita el borde negro */
+    background-color: white !important;     /* Fondo blanco al elegir nota */
+    color: #262e38 !important;              /* Número en azul oscuro */
+    border: none !important;                /* Quita el borde negro */
 }
 
-/* --- 7. EL BOTÓN DE ENVIAR: Naranja fijo con sombra --- */
+
+/* --- 7. BOTÓN ENVIAR: Naranja fijo con sombra de volumen --- */
+
 button {
     background-color: hsl(25, 97%, 53%) !important; /* Siempre NARANJA de base */
     color: hsl(217, 12%, 63%) !important;           /* Letras en GRIS CLARO fijas */
     text-transform: uppercase;                      /* Letras en MAYÚSCULAS */
     font-weight: 800;                               /* Letras muy gruesas */
-    border: none;                                   /* Sin bordes exteriores */
+    border: none;                                   /* Sin bordes */
     padding: 12px;                                  /* Tu relleno original de 12px */
     border-radius: 25px;                            /* Tu redondeado original de 25px */
     width: 100%;                                    /* Todo el ancho de la tarjeta */
     cursor: pointer;                                /* Mano al pasar el ratón */
     box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.6);  /* LA SOMBRA OSCURA de volumen */
-    transition: 0.2s;                               /* Suaviza el cambio al pulsar */
+    transition: 0.2s;                               /* Suaviza el cambio */
 }
 
 button:active {
-    box-shadow: none !important;                    /* La sombra DESAPARECE al pulsar */
+    box-shadow: none !important;                    /* LA SOMBRA SE QUITA AL PULSAR */
 }
 
-/* --- 8. LA CÁPSULA (RATING): Centrada y naranja en vista 2 --- */
+
+/* --- 8. LA CÁPSULA (RATING): Centrada y naranja --- */
+
 .rating {
     background-color: #262e38;              /* Fondo gris azulado oscuro */
     color: hsl(25, 97%, 53%);               /* Texto naranja */
@@ -134,4 +140,5 @@ button:active {
     display: table;                         /* Truco para centrar y medir lo justo */
     margin: 0 auto 20px auto;               /* Centra horizontalmente */
     font-size: 15px;                        /* Tamaño de letra */
+    font-weight: 600;                       /* Letra un poco más gruesa */
 }
